@@ -30,7 +30,7 @@ jobs:
         context: ./BackEnd
         file: ./Backend/Dockerfile
         push: true
-        tags: username/twc-weather-microservice:backend-${{ github.event.release.tag_name }}
+        tags: chrschou/twc-weather-microservice:backend-${{ github.event.release.tag_name }}
         
     - name: Build and Push Docker Image for Frontend
       id: frontend_build_push
@@ -39,5 +39,5 @@ jobs:
         context: ./FrontEnd
         file: ./FrontEnd/Dockerfile
         push: true
-        tags: username/twc-weather-microservice:frontend-${{ github.event.release.tag_name }}
+        tags: chrschou/twc-weather-microservice:frontend-${{ github.event.release.tag_name }}
 
