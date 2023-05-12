@@ -10,23 +10,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
     - name: Login to Docker Hub
-      uses: docker/login-action@v1
+      uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Build and Push Docker Image for Backend
       id: backend_build_push
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v4
       with:
-        context: ./backend
+        context: ./BackEnd
         push: true
         tags: username/twc-weather-microservice-backend:${{ github.event.release.tag_name }}
     - name: Build and Push Docker Image for Frontend
       id: frontend_build_push
-      uses: docker/build-push-action@v2
+      uses: docker/build-push-action@v4
       with:
-        context: ./frontend
+        context: ./FrontEnd
         push: true
         tags: username/twc-weather-microservice-frontend:${{ github.event.release.tag_name }}
