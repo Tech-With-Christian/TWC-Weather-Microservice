@@ -1,4 +1,4 @@
-name: Docker Build and Publish
+name: Build and Publish Application to Docker Hub
 
 on:
   release:
