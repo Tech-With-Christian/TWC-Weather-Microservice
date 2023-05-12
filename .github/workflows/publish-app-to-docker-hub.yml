@@ -27,7 +27,7 @@ jobs:
       id: backend_build_push
       uses: docker/build-push-action@v4
       with:
-        context: "{{defaultContext}}:BackEnd"
+        context: "./BackEnd"
         file: "./Backend/Dockerfile"
         push: true
         tags: username/twc-weather-microservice:backend-${{ github.event.release.tag_name }}
@@ -36,7 +36,7 @@ jobs:
       id: frontend_build_push
       uses: docker/build-push-action@v4
       with:
-        context: "{{defaultContext}}:FrontEnd"
+        context: "./FrontEnd"
         file: "./FrontEnd/Dockerfile"
         push: true
         tags: username/twc-weather-microservice:frontend-${{ github.event.release.tag_name }}
